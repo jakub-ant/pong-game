@@ -1,0 +1,19 @@
+html {
+    background-color: #ddd;
+    font-family: Verdana, Helvetica, sans-serif;
+}
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.canvas {
+    background-color: gray;
+}
+.results {
+    max-width: 400px;
+}
+.result-container {
+    display: flex;
+    justify-content: space-between;
+}

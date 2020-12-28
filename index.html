@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong Game</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="inner-container">
+            <h1>Pong Game</h1>
+            <canvas height="300" width="500" class="canvas"></canvas>
+            <div class="results">
+                <h2>Results</h2>
+                <div class="result-container">
+                    <p id="player1">Player 1: <span>0</span></p>
+                    <p id="draw">Draws: <span>0</span></p>
+                    <p id="player2">Player 2: <span>0</span></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+<script src="classes/CanvasEl.js"></script>
+<script src="classes/Player.js"></script>
+<script src="classes/Ball.js"></script>
+<script src="classes/Game.js"></script>
+    <script   src="main.js"></script>
+</body>
+
+</html>
