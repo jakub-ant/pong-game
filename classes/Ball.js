@@ -6,32 +6,32 @@ import {
 export class Ball extends CanvasEl {
     constructor(x, y, heigth, width, color, flag) {
         super(x, y, heigth, width, color);
-        this._flag = flag;
+        this.flag = flag;
     }
     move() {
-        if (this._flag) {
-            this._x -= this.scale;
+        if (this.flag) {
+            this.x -= this.scale;
 
-        } else if (!this._flag) {
-            this._x += this.scale;
+        } else if (!this.flag) {
+            this.x += this.scale;
         }
     }
     hit(xPlayer1, yPlayer1, xPlayer2, yPlayer2, heightPlayer1, heightPlayer2) {
-        if (this._x === xPlayer1) {
-            if (this._y + this._height < yPlayer1)
+        if (this.x === xPlayer1) {
+            if (this.y + this.height < yPlayer1)
                 return;
-            if (this._y >= yPlayer1 + heightPlayer1)
+            if (this.y >= yPlayer1 + heightPlayer1)
                 return;
-            this._flag = !this._flag;
+            this.flag = !this.flag;
             this.lastTouch = 1;
             this.changePosition();
         }
-        if (this._x + this._width === xPlayer2) {
-            if (this._y + this._height < yPlayer2)
+        if (this.x + this.width === xPlayer2) {
+            if (this.y + this.height < yPlayer2)
                 return;
-            if (this._y >= yPlayer2 + heightPlayer2)
+            if (this.y >= yPlayer2 + heightPlayer2)
                 return;
-            this._flag = !this._flag;
+            this.flag = !this.flag;
             this.lastTouch = 2;
             this.changePosition();
 
@@ -48,11 +48,11 @@ export class Ball extends CanvasEl {
             () => {
                 switch (randomInt) {
                     case 0:
-                        this._y++;
+                        this.y++;
 
                         break;
                     case 1:
-                        this._y--;
+                        this.y--;
 
                         break;
 
@@ -67,10 +67,10 @@ export class Ball extends CanvasEl {
                 lastTouch: this.lastTouch
             }
         });
-        if (this._x < 0 || this._x > this.ctx.canvas.width || this.y < 0 || this.y > this.ctx.canvas.height) {
-            this._x = this._initialX;
-            this._y = this._initialY;
-            this._flag = !this._flag;
+        if (this.x < 0 || this.x > this.ctx.canvas.width || this.y < 0 || this.y > this.ctx.canvas.height) {
+            this.x = this.initialX;
+            this.y = this.initialY;
+            this.flag = !this.flag;
             this.lastTouch = 0;
             window.dispatchEvent(leftCanvasEvent);
         }

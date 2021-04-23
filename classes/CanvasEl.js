@@ -3,18 +3,18 @@ export class CanvasEl {
     canvas = document.querySelector('.canvas');
     ctx = this.canvas.getContext("2d");
     scale = 10;
-    constructor(x, y, heigth, width, color) {
-        this._x = x;
-        this._y = y;
-        this._height = heigth;
-        this._width = width;
-        this._color = color;
-        this._initialX = x;
-        this._initialY = y;
+    constructor(PlayerX, PlayerY, PlayerHeigth, PlayerWidth, PlayerColor) {
+        this.x = PlayerX;
+        this.y = PlayerY;
+        this.height = PlayerHeigth;
+        this.width = PlayerWidth;
+        this.color = PlayerColor;
+        this.initialX = PlayerX;
+        this.initialY = PlayerY;
     }
     draw() {
-        this.ctx.fillStyle = this._color;
-        this.ctx.fillRect(this._x, this._y, this._width, this._height);
+        this.ctx.fillStyle = this.color;
+        this.ctx.fillRect(this.x, this.y, this.width, this.height);
     }
     static getRandomInt(min, max) {
         min = Math.ceil(min);

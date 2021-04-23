@@ -55,7 +55,7 @@ export class Game {
             this.player2.draw();
             this.ball.move();
             this.ball.draw();
-            this.ball.hit(this.player1._x + this.player1._width, this.player1._y, this.player2._x, this.player2._y, this.player1._height, this.player2._height);
+            this.ball.hit(this.player1.x + this.player1.width, this.player1.y, this.player2.x, this.player2.y, this.player1.height, this.player2.height);
             this.ball.leftCanvas();
         }, 100);
 
