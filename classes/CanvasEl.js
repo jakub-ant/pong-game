@@ -1,5 +1,8 @@
 "use strict";
-class CanvasEl {
+export class CanvasEl {
+    canvas = document.querySelector('.canvas');
+    ctx = this.canvas.getContext("2d");
+    scale = 10;
     constructor(x, y, heigth, width, color) {
         this._x = x;
         this._y = y;
@@ -10,8 +13,8 @@ class CanvasEl {
         this._initialY = y;
     }
     draw() {
-        ctx.fillStyle = this._color;
-        ctx.fillRect(this._x, this._y, this._width, this._height);
+        this.ctx.fillStyle = this._color;
+        this.ctx.fillRect(this._x, this._y, this._width, this._height);
     }
     static getRandomInt(min, max) {
         min = Math.ceil(min);

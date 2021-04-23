@@ -1,15 +1,19 @@
 "use strict";
-class Ball extends CanvasEl {
+import {
+    CanvasEl
+} from './CanvasEl.js'
+
+export class Ball extends CanvasEl {
     constructor(x, y, heigth, width, color, flag) {
         super(x, y, heigth, width, color);
         this._flag = flag;
     }
     move() {
         if (this._flag) {
-            this._x -= scale;
+            this._x -= this.scale;
 
         } else if (!this._flag) {
-            this._x += scale;
+            this._x += this.scale;
         }
     }
     hit(xPlayer1, yPlayer1, xPlayer2, yPlayer2, heightPlayer1, heightPlayer2) {
@@ -63,7 +67,7 @@ class Ball extends CanvasEl {
                 lastTouch: this.lastTouch
             }
         });
-        if (this._x < 0 || this._x > ctx.canvas.width || this.y < 0 || this.y > ctx.canvas.height) {
+        if (this._x < 0 || this._x > this.ctx.canvas.width || this.y < 0 || this.y > this.ctx.canvas.height) {
             this._x = this._initialX;
             this._y = this._initialY;
             this._flag = !this._flag;

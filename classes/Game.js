@@ -1,13 +1,25 @@
 "use strict";
-class Game {
-    constructor(canvas, ctx, scale, playerColor) {
-        this.canvas = canvas;
-        this.ctx = ctx;
-        this.scale = scale;
-        this.player1 = new Player(20, 100, 100, 30, playerColor);
-        this.player2 = new Player(450, 100, 100, 30, playerColor);
+import {
+    Player
+} from './Player.js'
+import {
+    Ball
+} from './Ball.js'
+import {
+    CanvasEl
+} from './CanvasEl.js'
+
+export class Game {
+    canvas = document.querySelector('.canvas');
+    ctx = this.canvas.getContext("2d");
+    scale = 10;
+    playerColor = '#fff';
+
+    constructor() {
+        this.player1 = new Player(20, 100, 100, 30, this.playerColor);
+        this.player2 = new Player(450, 100, 100, 30, this.playerColor);
         this.player2.flag = true;
-        this.ball = new Ball(canvas.width / 2 - scale, canvas.height / 2 - scale, 20, 20, playerColor, CanvasEl.getRandomInt(0, 1) === 0 ? true : false);
+        this.ball = new Ball(this.canvas.width / 2 - this.scale, this.canvas.height / 2 - this.scale, 20, 20, this.playerColor, CanvasEl.getRandomInt(0, 1) === 0 ? true : false);
         this.setEventListeners();
         this.setInterval();
     }
@@ -37,7 +49,7 @@ class Game {
     }
     setInterval() {
         setInterval(() => {
-            this.ctx.clearRect(0, 0, canvas.width, canvas.height);
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
             this.player2.moveItself();
             this.player1.draw();
             this.player2.draw();
